@@ -43,8 +43,8 @@ time sudo apt-get install solc -y
 
 # Fetch Genesis and Private Key
 cd $HOMEDIR
-wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/go-ethereum-on-ubuntu/genesis.json
-wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/go-ethereum-on-ubuntu/start-private-blockchain.sh
+wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/genesis.json
+wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain.sh
 
 time sudo geth --datadir $HOMEDIR/GethData init genesis.json
 
