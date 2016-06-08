@@ -48,7 +48,7 @@ wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/gen
 wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain.sh
 
 time sudo geth --datadir $HOMEDIR/GethData init genesis.json
-time sudo printf "$AZUREPWD\n" > password.txt 
+time sudo echo -e "$AZUREPWD\n" > password.txt 
 time sudo geth --password password.txt account new
 time sudo rm password.txt
 
