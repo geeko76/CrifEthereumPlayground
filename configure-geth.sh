@@ -12,6 +12,7 @@ ps axjf
 #############
 
 AZUREUSER=$1
+AZUREPWD=$2
 HOMEDIR="/home/$AZUREUSER"
 VMNAME=`hostname`
 echo "User: $AZUREUSER"
@@ -41,13 +42,15 @@ time sudo add-apt-repository ppa:ethereum/ethereum -y
 time sudo apt-get update
 time sudo apt-get install solc -y
 
-# Fetch Genesis and Private Key
+# Fetch Genesis and Start Command
 cd $HOMEDIR
 wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/genesis.json
 wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain.sh
 
 time sudo geth --datadir $HOMEDIR/GethData init genesis.json
+time sudo printf "$AZUREPWD\n" > password.txt 
+time sudo geth --password password.txt account new
+time sudo rm password.txt
 
 date
 echo "completed geth install $$"
-
