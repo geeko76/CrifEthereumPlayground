@@ -13,6 +13,7 @@ ps axjf
 
 AZUREUSER=$1
 AZUREPWD=$2
+ROLE=$3
 HOMEDIR="/home/$AZUREUSER"
 VMNAME=`hostname`
 echo "User: $AZUREUSER"
@@ -45,9 +46,17 @@ time sudo apt-get install solc -y
 # Fetch Genesis and Start Command
 cd $HOMEDIR
 wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/genesis.json
-wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain.sh
+if test "$ROLE" = "miner"
+then
+     wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-miner.sh
+else
+     wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-peer.sh
+fi
 
+# Init node with custom genesis block
 time sudo geth --datadir $HOMEDIR/GethData init genesis.json
+
+# Create the default account
 time sudo echo -e "$AZUREPWD\n" > password.txt 
 time sudo geth --datadir $HOMEDIR/GethData --password password.txt account new
 time sudo rm password.txt
