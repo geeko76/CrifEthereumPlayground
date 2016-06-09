@@ -13,9 +13,10 @@ ps axjf
 
 AZUREUSER=$1
 AZUREPWD=$2
-ROLE=$3
+MINERSCOUNT=$3
 HOMEDIR="/home/$AZUREUSER"
 VMNAME=`hostname`
+INDEX=${VMNAME:`expr length VMNAME + 1`}
 echo "User: $AZUREUSER"
 echo "User home dir: $HOMEDIR"
 echo "vmname: $VMNAME"
@@ -46,7 +47,7 @@ time sudo apt-get install solc -y
 # Fetch Genesis and Start Command
 cd $HOMEDIR
 wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/genesis.json
-if test "$ROLE" = "miner"
+if test "$INDEX" -lt "$MINERSCOUNT"
 then
      wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-miner.sh
 else
