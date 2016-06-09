@@ -16,10 +16,11 @@ AZUREPWD=$2
 MINERSCOUNT=$3
 HOMEDIR="/home/$AZUREUSER"
 VMNAME=`hostname`
-INDEX=${VMNAME:`expr length VMNAME + 1`}
+INDEX=${VMNAME: -1}
 echo "User: $AZUREUSER"
 echo "User home dir: $HOMEDIR"
 echo "vmname: $VMNAME"
+echo "index: $INDEX"
 
 #####################
 # setup the Azure CLI
