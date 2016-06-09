@@ -49,7 +49,7 @@ wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/sta
 
 time sudo geth --datadir $HOMEDIR/GethData init genesis.json
 time sudo echo -e "$AZUREPWD\n" > password.txt 
-time sudo geth --password password.txt account new
+time sudo geth --datadir $HOMEDIR/GethData --password password.txt account new
 time sudo rm password.txt
 
 date
