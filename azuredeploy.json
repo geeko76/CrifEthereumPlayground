@@ -288,11 +288,11 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'), copyIndex(),'/newuserscript')]",
+      "name": "[concat(variables('vmName'), parameters('totalPeersCount'),'/newuserscript')]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[variables('location')]",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'), copyIndex())]"
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'), parameters('totalPeersCount'))]"
       ],
       "properties": {
         "publisher": "Microsoft.OSTCExtensions",
@@ -305,10 +305,6 @@
           ],
           "commandToExecute": "[concat('bash configure-geth.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('minersCount'), ' ',  reference(concat(variables('vmName'), parameters('totalPeersCount'))).dnsSettings.fqdn)]"
         }
-      },
-      "copy": {
-        "name": "extCopy",
-        "count": "[parameters('totalPeersCount')]"
       }
     }
   ],
