@@ -278,7 +278,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-geth.sh"
           ],
-          "commandToExecute": "[concat('bash configure-geth.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('minersCount'), ' ',  reference(concat(variables('vmName'), parameters('totalPeersCount'))).dnsName)]"
+          "commandToExecute": "[concat('bash configure-geth.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('minersCount'), ' ',  reference(concat(variables('vmName'), parameters('totalPeersCount'))).dnsSettings.fqdn)]"
         }
       },
       "copy": {
