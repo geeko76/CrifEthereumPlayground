@@ -50,9 +50,9 @@ cd $HOMEDIR
 wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/genesis.json
 if test "$INDEX" -lt "$MINERSCOUNT"
 then
-     wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-miner.sh
+     time wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-miner.sh
 else
-     wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-peer.sh
+     time wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-peer.sh
 fi
 
 # Init node with custom genesis block
@@ -62,6 +62,22 @@ time sudo geth --datadir $HOMEDIR/GethData init genesis.json
 time sudo echo -e "$AZUREPWD\n" > password.txt 
 time sudo geth --datadir $HOMEDIR/GethData --password password.txt account new
 time sudo rm password.txt
+
+# Install Git
+time sudo apt-get install -y git
+
+# Install Pm2
+time sudo npm install pm2 -g
+
+# Install Ethereum Network Intelligence API
+time git clone https://github.com/cubedro/eth-net-intelligence-api eth-net-intelligence-api/repository
+time cd ~/eth-net-intelligence-api/repository
+time git pull
+time sudo npm install
+time cd ~/eth-net-intelligence-api
+time wget https://raw.githubusercontent.com/ethersphere/eth-utils/master/netstatconf.sh 
+time chomod +x netstatconf.sh
+time netstatconfig.sh 8 gethbox http://$4:3301 gethsecret > ~/eth-net-intelligence-api/gethcluster.json
 
 date
 echo "completed geth install $$"
