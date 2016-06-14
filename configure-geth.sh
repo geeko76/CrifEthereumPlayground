@@ -76,7 +76,7 @@ time git pull
 time sudo npm install
 time cd ~/eth-net-intelligence-api
 time sudo wget https://raw.githubusercontent.com/ethersphere/eth-utils/master/netstatconf.sh 
-time sudo bash netstatconfig.sh 8 gethbox http://$4:3301 gethsecret > ~/eth-net-intelligence-api/gethcluster.json
+time sudo bash netstatconf.sh 8 gethbox http://$4:3301 gethsecret > ~/eth-net-intelligence-api/gethcluster.json
 
 date
 echo "completed geth install $$"
