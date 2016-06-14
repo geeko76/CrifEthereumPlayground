@@ -17,6 +17,7 @@ MINERSCOUNT=$3
 HOMEDIR="/home/$AZUREUSER"
 VMNAME=`hostname`
 INDEX=${VMNAME: -1}
+DEVMONITOR=$4
 echo "User: $AZUREUSER"
 echo "User home dir: $HOMEDIR"
 echo "vmname: $VMNAME"
@@ -70,13 +71,14 @@ time sudo apt-get install -y git
 time sudo npm install pm2 -g
 
 # Install Ethereum Network Intelligence API
-time git clone https://github.com/cubedro/eth-net-intelligence-api eth-net-intelligence-api/repository
-time cd ~/eth-net-intelligence-api/repository
+time git clone https://github.com/cubedro/eth-net-intelligence-api eth-net-intelligence-api
+time cd ~/eth-net-intelligence-api
 time git pull
 time sudo npm install
-time cd ~/eth-net-intelligence-api
-time sudo wget https://raw.githubusercontent.com/ethersphere/eth-utils/master/netstatconf.sh 
-time sudo bash netstatconf.sh 8 gethbox http://$4:3301 gethsecret > ~/eth-net-intelligence-api/gethcluster.json
+time cd ~
+time wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-eth-netstats.sh  
+time bash configure-eth-netstats.sh $VMNAME http://$DEVMONITOR:3301 gethsecret > gethcluster.json
+time sudo mv ~/gethcluster.json ~/eth-net-intelligence-api/gethcluster.json
 
 date
 echo "completed geth install $$"
