@@ -74,6 +74,9 @@ time sudo apt-get install -y nodejs
 # Install Pm2
 time sudo npm install pm2 -g
 
+# Install Web3
+time sudo npm install web3 -g
+
 # Install Ethereum Network Intelligence API	
 time cd $HOMEDIR
 time git clone https://github.com/cubedro/eth-net-intelligence-api eth-net-intelligence-api
