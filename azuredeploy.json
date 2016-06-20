@@ -263,7 +263,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'), copyIndex(),'/newuserscript')]",
+      "name": "[concat(variables('vmName'), copyIndex(),'/configurenodescript')]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[variables('location')]",
       "dependsOn": [
@@ -288,7 +288,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'), parameters('totalPeersCount'),'/newuserscript')]",
+      "name": "[concat(variables('vmName'), parameters('totalPeersCount'),'/configurenodescript')]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[variables('location')]",
       "dependsOn": [
