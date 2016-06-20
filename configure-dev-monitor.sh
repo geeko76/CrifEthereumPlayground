@@ -73,5 +73,10 @@ sudo apt-get install -y git
 # Install Truffle
 sudo npm install -g truffle
 
+# Install Ethereum Network Stats
+git clone https://github.com/cubedro/eth-netstats $HOMEDIR/eth-netstats 
+cd eth-netstats
+npm install
+
 date
 echo "completed geth install $$"
