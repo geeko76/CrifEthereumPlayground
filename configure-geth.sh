@@ -74,15 +74,15 @@ sudo apt-get install -y nodejs
 # Install Pm2
 time sudo npm install pm2 -g
 
-# Install Ethereum Network Intelligence API
+# Install Ethereum Network Intelligence API	
 time git clone https://github.com/cubedro/eth-net-intelligence-api $HOMEDIR/eth-net-intelligence-api
 time cd $HOMEDIR/eth-net-intelligence-api
 time git pull
-time sudo npm install
+time npm install
 time cd $HOMEDIR
 time wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-eth-netstats.sh  
 time bash configure-eth-netstats.sh $VMNAME http://$DEVMONITOR:3301 gethsecret > gethcluster.json
-time sudo mv $HOMEDIR/gethcluster.json $HOMEDIR/eth-net-intelligence-api/gethcluster.json
+time mv $HOMEDIR/gethcluster.json $HOMEDIR/eth-net-intelligence-api/gethcluster.json
 
 date
 echo "completed geth install $$"
