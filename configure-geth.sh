@@ -67,8 +67,8 @@ time sudo rm password.txt
 # Install Git
 time sudo apt-get install -y git
 
-# Install Node.js 6.x
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# Install Node.js 5.x
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Install Pm2
