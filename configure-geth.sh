@@ -68,15 +68,16 @@ time sudo rm password.txt
 time sudo apt-get install -y git
 
 # Install Node.js 5.x
-curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-sudo apt-get install -y nodejs
+time curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+time sudo apt-get install -y nodejs
 
 # Install Pm2
 time sudo npm install pm2 -g
 
 # Install Ethereum Network Intelligence API	
-time git clone https://github.com/cubedro/eth-net-intelligence-api $HOMEDIR/eth-net-intelligence-api
-time cd $HOMEDIR/eth-net-intelligence-api
+time cd $HOMEDIR
+time git clone https://github.com/cubedro/eth-net-intelligence-api eth-net-intelligence-api
+time cd eth-net-intelligence-api
 time git pull
 time npm install
 time cd $HOMEDIR
