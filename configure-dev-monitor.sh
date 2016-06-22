@@ -65,18 +65,22 @@ time sudo rm password.txt
 
 # Install Node.js 6.x
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
+time sudo apt-get install -y nodejs
 
 # Install Git
-sudo apt-get install -y git
+time sudo apt-get install -y git
 
 # Install Truffle
-sudo npm install -g truffle
+time sudo npm install -g truffle
+
+# Install Grunt
+time sudo npm install -g grunt-cli
 
 # Install Ethereum Network Stats
-git clone https://github.com/cubedro/eth-netstats $HOMEDIR/eth-netstats 
-cd eth-netstats
-npm install
+time echo $AZUREPWD | sudo -S -u $AZUREUSER git clone https://github.com/cubedro/eth-netstats $HOMEDIR/eth-netstats 
+time cd eth-netstats
+time echo $AZUREPWD | sudo -S -u $AZUREUSER npm install
+time echo $AZUREPWD | sudo -S -u grunt
 
 date
 echo "completed geth install $$"
