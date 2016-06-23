@@ -48,12 +48,7 @@ time sudo apt-get install solc -y
 # Fetch Genesis and Start Command
 cd $HOMEDIR
 wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/genesis.json
-if test "$INDEX" -lt "$MINERSCOUNT"
-then
-     wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-miner.sh
-else
-     wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-peer.sh
-fi
+wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/start-private-blockchain-dev-monitor.sh
 
 # Init node with custom genesis block
 time sudo geth --datadir $HOMEDIR/GethData init genesis.json
