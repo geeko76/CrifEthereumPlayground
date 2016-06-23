@@ -1,6 +1,5 @@
 # !/bin/bash
 # bash configure-eth-netstats.sh <node_name> <ws_server> <ws_secret>
-
 # sets up a eth-net-intelligence app.json for a local ethereum network cluster of nodes
 # - <node_name> the node name as will appear in the listing
 # - <ws_server> is the eth-netstats server
