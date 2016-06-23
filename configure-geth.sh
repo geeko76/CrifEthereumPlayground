@@ -83,10 +83,8 @@ time echo $AZUREPWD | sudo -S -u $AZUREUSER git clone https://github.com/cubedro
 time cd eth-net-intelligence-api
 time git pull
 time echo $AZUREPWD | sudo -S -u $AZUREUSER npm install
-time cd $HOMEDIR
-time echo $AZUREPWD | sudo -S -u $AZUREUSER wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-eth-netstats.sh  
-time echo $AZUREPWD | sudo -S -u $AZUREUSER bash configure-eth-netstats.sh $VMNAME http://$DEVMONITOR:3301 gethsecret > gethcluster.json
-time mv $HOMEDIR/gethcluster.json $HOMEDIR/eth-net-intelligence-api/gethcluster.json
+time echo $AZUREPWD | sudo -S -u $AZUREUSER wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-eth-net-intelligence-api.sh  
+time echo $AZUREPWD | sudo -S -u $AZUREUSER bash configure-eth-net-intelligence-api.sh $VMNAME http://$DEVMONITOR:3301 gethsecret > gethcluster.json
 
 date
 echo "completed geth install $$"
