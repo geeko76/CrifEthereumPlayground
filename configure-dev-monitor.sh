@@ -76,11 +76,16 @@ time sudo npm install -g truffle
 # Install Grunt
 time sudo npm install -g grunt-cli
 
+# Install Pm2
+time sudo npm install pm2 -g
+
 # Install Ethereum Network Stats
 time echo $AZUREPWD | sudo -S -u $AZUREUSER git clone https://github.com/cubedro/eth-netstats $HOMEDIR/eth-netstats 
 time cd eth-netstats
 time echo $AZUREPWD | sudo -S -u $AZUREUSER npm install
 time echo $AZUREPWD | sudo -S -u grunt
+time echo $AZUREPWD | sudo -S -u $AZUREUSER wget https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-eth-netstats.sh  
+time echo $AZUREPWD | sudo -S -u $AZUREUSER bash configure-eth-netstats.sh 3301 gethsecret > gethcluster.json
 
 date
 echo "completed geth install $$"
