@@ -276,7 +276,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-geth.sh"
+            "https://raw.githubusercontent.com/geeko76/GeekoEthereumPlayground/master/configure-geth.sh"
           ],
           "commandToExecute": "[concat('bash configure-geth.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('minersCount'), ' ',  reference(concat(variables('publicIPAddressName'), parameters('totalPeersCount'))).dnsSettings.fqdn)]"
         }
@@ -301,7 +301,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/geeko76/CrifEthereumPlayground/master/configure-dev-monitor.sh"
+            "https://raw.githubusercontent.com/geeko76/GeekoEthereumPlayground/master/configure-dev-monitor.sh"
           ],
           "commandToExecute": "[concat('bash configure-dev-monitor.sh ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('minersCount'), ' ',  reference(concat(variables('publicIPAddressName'), parameters('totalPeersCount'))).dnsSettings.fqdn)]"
         }
